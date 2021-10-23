@@ -172,3 +172,158 @@ Creates a new molt
 | source   | string | Defaults to "Crabber API" |
 
 **Returns:** Molt
+
+> ### GET /molts/:id
+Fetches a specific molt
+
+**Returns:** Molt
+
+> ### DELETE /molts/:id
+Deletes a specific molt
+
+**Returns:** plain text confirmation message
+
+> ### POST /molts/:id/edit
+Edits the given molt.
+
+> **NOTE:** This endpoint is only valid within the first 5 minutes after sending a molt
+
+**Body:** Should be form data containing the following:
+| name     | type   | description |
+|----------|--------|-------------|
+| content  | string | Must be less than 280 characters |
+| image    | file   | A file attachment of a valid image |
+| source   | string | Defaults to "Crabber API" |
+
+**Returns:** Molt
+
+## Interacting
+
+> ### POST /molts/:id/quote
+Quote-molts the given molt to the authorized account
+
+**Body:** Should be form data containing the following:
+| name     | type   | description |
+|----------|--------|-------------|
+| content  | string | Must be less than 280 characters |
+| image    | file   | A file attachment of a valid image |
+| source   | string | Defaults to "Crabber API" |
+
+**Returns:** Molt
+
+> ### POST /molts/:id/reply
+Replies to the given molt from the authorized account
+
+**Body:** Should be form data containing the following:
+| name     | type   | description |
+|----------|--------|-------------|
+| content  | string | Must be less than 280 characters |
+| image    | file   | A file attachment of a valid image |
+| source   | string | Defaults to "Crabber API" |
+
+**Returns:** Molt
+
+> ### POST /molts/:id/remolt
+Remolts the given molt to the authorized account
+
+**Returns:** plain text confirmation message
+
+> ### DELETE /molts/:id/remolt
+Deletes a remolt made from the authorized account
+
+**Returns:** plain text confirmation message
+
+> ### POST /molts/:id/bookmark
+Bookmarks the given molt
+
+**Returns:** plain text confirmation message
+
+
+> ### POST /molts/:id/unbookmark
+Un-bookmarks the given molt
+
+**Returns:** plain text confirmation message
+
+> ### POST /molts/:id/like
+Likes the given molt from the authorized account
+
+**Returns:** plain text confirmation message
+
+> ### POST /molts/:id/unlike
+Unlikes the given molt from the authorized account
+
+**Returns:** plain text confirmation message
+
+> ### GET /molts/:id/replies
+Fetches replies on a molt
+
+**Params:**
+| name     | type   | description |
+|----------|--------|-------------|
+| limit    | int    | The number of crabs to fetch |
+| offset   | int    | Used for paginating the list |
+| since_id | int    | Molt ID; used to check for molts made after that one |
+
+**Returns:** Molt list
+
+> ### GET /molts/:id/quotes
+Fetches quote-molts on a molt
+
+**Params:**
+| name     | type   | description |
+|----------|--------|-------------|
+| limit    | int    | The number of crabs to fetch |
+| offset   | int    | Used for paginating the list |
+| since_id | int    | Molt ID; used to check for molts made after that one |
+
+**Returns:** Molt list
+
+## Querying
+> ### GET /molts/mentioning/:name
+Fetches molts mentioning a user with the given username
+
+**Params:**
+| name     | type   | description |
+|----------|--------|-------------|
+| limit    | int    | The number of crabs to fetch |
+| offset   | int    | Used for paginating the list |
+| since_id | int    | Molt ID; used to check for molts made after that one |
+
+**Returns:** Molt list
+
+
+> ### GET /molts/replying/:name
+Fetches molts replying to a user with the given username
+
+**Params:**
+| name     | type   | description |
+|----------|--------|-------------|
+| limit    | int    | The number of crabs to fetch |
+| offset   | int    | Used for paginating the list |
+| since_id | int    | Molt ID; used to check for molts made after that one |
+
+**Returns:** Molt list
+
+> ### GET /crabtag/:tag
+Fetches molts using the given crabtag
+
+**Params:**
+| name     | type   | description |
+|----------|--------|-------------|
+| limit    | int    | The number of crabs to fetch |
+| offset   | int    | Used for paginating the list |
+| since_id | int    | Molt ID; used to check for molts made after that one |
+
+**Returns:** Molt list
+
+> ### GET /timeline/:name
+Fetches the timeline for a user with the given username
+
+**Params:**
+| name     | type   | description |
+|----------|--------|-------------|
+| limit    | int    | The number of crabs to fetch |
+| offset   | int    | Used for paginating the list |
+| since_id | int    | Molt ID; used to check for molts made after that one |
+
+**Returns:** Molt list
