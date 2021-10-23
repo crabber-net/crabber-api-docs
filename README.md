@@ -160,7 +160,7 @@ Fetches the bookmarks of the given crab
 **Returns:** Molt list
 
 ## Molts
-## Managing molts
+### Managing molts
 > ### POST /molts
 Creates a new molt
 
@@ -197,7 +197,7 @@ Edits the given molt.
 
 **Returns:** Molt
 
-## Interacting
+### Interaction
 
 > ### POST /molts/:id/quote
 Quote-molts the given molt to the authorized account
@@ -238,7 +238,6 @@ Bookmarks the given molt
 
 **Returns:** plain text confirmation message
 
-
 > ### POST /molts/:id/unbookmark
 Un-bookmarks the given molt
 
@@ -278,7 +277,7 @@ Fetches quote-molts on a molt
 
 **Returns:** Molt list
 
-## Querying
+### Querying
 > ### GET /molts/mentioning/:name
 Fetches molts mentioning a user with the given username
 
@@ -290,7 +289,6 @@ Fetches molts mentioning a user with the given username
 | since_id | int    | Molt ID; used to check for molts made after that one |
 
 **Returns:** Molt list
-
 
 > ### GET /molts/replying/:name
 Fetches molts replying to a user with the given username
