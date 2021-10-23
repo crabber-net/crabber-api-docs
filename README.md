@@ -96,12 +96,12 @@ Fetches a crab with their bio included
 > ### POST /crabs/:id/bio
 Updates the bio of a crab, given the access token matches the account
 
-**Body:** Should be an object containing any of the keys found in the bio model
+**Body:** Should be form data containing any of the keys found in the bio model
 
 **Returns:** Crab with bio
 
 ### Following and follower info
-> ### POST /crabs/:id:/follow
+> ### POST /crabs/:id/follow
 Follows a crab from the account linked to the given access token
 
 **Returns:** plain text confirmation message
@@ -138,8 +138,8 @@ Gets a list of crabs the given crab is following
 Fetches molts created by this crab
 
 **Params:**
-| name     | type   |description |
-|----------|--------|------------|
+| name     | type   | description |
+|----------|--------|-------------|
 | limit    | int    | The number of crabs to fetch |
 | offset   | int    | Used for paginating the list |
 | since_id | int    | Molt ID; used to check for molts made after that one |
@@ -152,9 +152,23 @@ Fetches molts created by this crab
 Fetches the bookmarks of the given crab
 
 **Params:**
-| name     | type   |description |
-|----------|--------|------------|
+| name     | type   | description |
+|----------|--------|-------------|
 | limit    | int    | The number of crabs to fetch |
 | offset   | int    | Used for paginating the list |
 
 **Returns:** Molt list
+
+## Molts
+## Managing molts
+> ### POST /molts
+Creates a new molt
+
+**Body:** Should be form data containing the following:
+| name     | type   | description |
+|----------|--------|-------------|
+| content  | string | Must be less than 280 characters |
+| image    | file   | A file attachment of a valid image |
+| source   | string | Defaults to "Crabber API" |
+
+**Returns:** Molt
